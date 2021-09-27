@@ -1,4 +1,7 @@
+import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
+import 'package:app/services/geolocation_service.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -18,10 +21,11 @@ class _MapScreenState extends State<MapScreen> {
               "Olá, usuário\n Encontramos seu PET",
             ),
           ),
-          Container(
-              //Map
-
-              ),
+          const GoogleMap(
+            initialCameraPosition: CameraPosition(
+              target: LatLng(1, 1),
+            ),
+          )
         ],
       ),
     );

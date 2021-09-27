@@ -2,7 +2,7 @@ import 'package:app/screens/MapScreen/map_screen.dart';
 // import 'package:app/screens/home.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
   runApp(const App());
 }
 
