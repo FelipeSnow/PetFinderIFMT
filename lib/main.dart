@@ -16,6 +16,7 @@ class App extends StatelessWidget {
         colorScheme: const ColorScheme.dark(primary: Colors.green),
       ),
       home: const MapScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

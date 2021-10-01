@@ -1,6 +1,4 @@
-import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
-import 'package:app/services/geolocation_service.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
@@ -13,20 +11,32 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          AppBar(
-            title: const Text(
-              "Olá, usuário\n Encontramos seu PET",
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            const GoogleMap(
+              initialCameraPosition: CameraPosition(
+                target: LatLng(1, 1),
+              ),
             ),
-          ),
-          const GoogleMap(
-            initialCameraPosition: CameraPosition(
-              target: LatLng(1, 1),
-            ),
-          )
-        ],
+            _appBar(context, ""),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Positioned _appBar(BuildContext context, String greetings) {
+    return Positioned(
+      top: 0.0,
+      right: 0.0,
+      left: 0.0,
+      child: AppBar(
+        title: Text(
+          greetings,
+        ),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }
